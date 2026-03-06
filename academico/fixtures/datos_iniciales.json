@@ -1,0 +1,15 @@
+[
+  { "model": "academico.programa", "pk": 1, "fields": { "nombre": "Ingeniería de Sistemas", "descripcion": "Programa enfocado en software y datos." } },
+  { "model": "academico.programa", "pk": 2, "fields": { "nombre": "Administración", "descripcion": "Programa enfocado en gestión y negocios." } },
+
+  { "model": "academico.curso", "pk": 1, "fields": { "programa": 1, "nombre": "Bases de Datos" } },
+  { "model": "academico.curso", "pk": 2, "fields": { "programa": 1, "nombre": "Programación Web" } },
+  { "model": "academico.curso", "pk": 3, "fields": { "programa": 2, "nombre": "Contabilidad" } },
+
+  { "model": "academico.estudiante", "pk": 1, "fields": { "nombre": "Ana Ruiz", "email": "ana@example.com" } },
+  { "model": "academico.estudiante", "pk": 2, "fields": { "nombre": "Luis Moreno", "email": "luis@example.com" } },
+
+  { "model": "academico.inscripcion", "pk": 1, "fields": { "estudiante": 1, "curso": 1 } },
+  { "model": "academico.inscripcion", "pk": 2, "fields": { "estudiante": 1, "curso": 2 } },
+  { "model": "academico.inscripcion", "pk": 3, "fields": { "estudiante": 2, "curso": 3 } }
+]

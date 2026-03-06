@@ -1,0 +1,20 @@
+{% extends "tienda/base.html" %}
+
+{% block title %}Estudiantes{% endblock %}
+
+{% block content %}
+<h1>Estudiantes</h1>
+
+<ul>
+  {% for e in estudiantes %}
+    <li>
+      <a href="{% url 'academico:estudiante_detail' e.id %}">
+        {{ e.nombre }}
+      </a>
+      <small>— {{ e.email }}</small>
+    </li>
+  {% empty %}
+    <li>No hay estudiantes registrados.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

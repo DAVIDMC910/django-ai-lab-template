@@ -1,0 +1,20 @@
+{% extends "tienda/base.html" %}
+
+{% block title %}Cursos{% endblock %}
+
+{% block content %}
+<h1>Cursos</h1>
+
+<ul>
+  {% for c in cursos %}
+    <li>
+      <a href="{% url 'academico:curso_detail' c.id %}">
+        {{ c.nombre }}
+      </a>
+      <small>— Programa: {{ c.programa.nombre }}</small>
+    </li>
+  {% empty %}
+    <li>No hay cursos registrados.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

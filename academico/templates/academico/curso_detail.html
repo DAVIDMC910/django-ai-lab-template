@@ -1,0 +1,30 @@
+{% extends "tienda/base.html" %}
+
+{% block title %}{{ curso.nombre }}{% endblock %}
+
+{% block content %}
+<h1>{{ curso.nombre }}</h1>
+
+<p>
+  <strong>Programa:</strong>
+  <a href="{% url 'academico:programa_detail' curso.programa.id %}">
+    {{ curso.programa.nombre }}
+  </a>
+</p>
+
+<h2>Estudiantes inscritos</h2>
+<ul>
+  {% for ins in curso.inscripciones.all %}
+    <li>
+      <a href="{% url 'academico:estudiante_detail' ins.estudiante.id %}">
+        {{ ins.estudiante.nombre }}
+      </a>
+      <small>({{ ins.estudiante.email }})</small>
+    </li>
+  {% empty %}
+    <li>No hay estudiantes inscritos en este curso.</li>
+  {% endfor %}
+</ul>
+
+<p><a href="{% url 'academico:curso_list' %}">Volver a Cursos</a></p>
+{% endblock %}
